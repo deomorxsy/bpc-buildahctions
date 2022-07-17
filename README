@@ -1,0 +1,3 @@
+# Buildahctions
+
+spark-on-k8s-operator sparklyr image created through buildah Actions environment, and pushed to dockerhub. It checks for events of pushing.
