@@ -1,0 +1,78 @@
+#
+# Copyright 2017 Google LLC
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     https://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+apiVersion: "sparkoperator.k8s.io/v1beta2"
+kind: SparkApplication
+metadata:
+  name: sparklyr-demo-01-blog
+  namespace: spark-apps
+spec:
+  sparkConf:
+    "spark.ui.port": "4045"
+    "spark.eventLog.enabled": "true"
+    "spark.eventLog.dir": "/opt/spark/logs/"
+    "spark.history.fs.logDirectory": "/opt/spark/logs/"
+  type: Java
+  mode: cluster
+  image: "localhost:5000/sparklyr-demo-v2:02"
+  imagePullPolicy: IfNotPresent
+  mainClass: sparklyr.Shell
+  mainApplicationFile: "local:///usr/local/lib/R/site-library/sparklyr/java/sparklyr-2.4-2.12.jar"
+  arguments:
+  - "8880"
+  - "222"
+  - "--batch"
+  - "/opt/spark/work-dir/R/blog-v2.R"
+  sparkVersion: "3.0.2"
+  restartPolicy:
+    type: OnFailure
+  volumes:
+    - name: "spark-data"
+      persistentVolumeClaim:
+        claimName: my-pvc
+    - name: "spark-work"
+      emptyDir: {}
+
+    - name: "spark-code"
+      hostPath:
+        path: /home/asari/Documentos/coding/containers/pod-labs/podman/operator/templates/sparklyr-script/
+
+  driver:
+    cores: 1
+    coreLimit: "1200m"
+    memory: "512m"
+    labels:
+      version: 3.0.2
+    serviceAccount: spark
+    volumeMounts:
+      - name: "spark-work"
+        mountPath: "/mnt/spark/work"
+  executor:
+    tolerations:
+      - key: Key
+        operator: Equal
+        value: Value
+        effect: NoSchedule
+    cores: 1
+    instances: 1
+    memory: "512m"
+    labels:
+      version: 3.0.2
+    volumeMounts:
+      - name: "spark-data"
+        mountPath: "/mnt/spark/data/"
+      - name: "spark-work"
+        mountPath: "/mnt/spark/work/"
+      - name: "spark-code"
+        mountPath: "/opt/spark/work-dir/R/"
