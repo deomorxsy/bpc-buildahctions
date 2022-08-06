@@ -24,7 +24,7 @@ RUN apt-get update -yqq \
         libxml2-dev \
         ssh \
         wget \
-        cmake
+        cmake \
     && apt-get install -y --no-install-recommends -t \
         buster-cran40 r-base \
         r-base-dev \
