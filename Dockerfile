@@ -15,7 +15,7 @@ RUN apt-get update -yqq \
         git \
         jq \
         libcurl4-openssl-dev \
-        libcurl14-gnutls-dev \
+        libcurl4-gnutls-dev \
         libgit2-dev \
         libmagick++-dev \
         libpq-dev \
