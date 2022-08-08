@@ -25,6 +25,19 @@ RUN apt-get update -yqq \
         ssh \
         wget \
         cmake \
+        #/// [pkgdown]
+        pandoc \
+        # /// [ragg]
+        cpp-11 \
+        freetype2 \
+        libpng \
+        libtiff \
+        libjpeg \
+        #/// [textshaping]
+        harfbuzz \
+        fribidi \
+        
+        
     && apt-get install -y --no-install-recommends -t \
         buster-cran40 r-base \
         r-base-dev \
