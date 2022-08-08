@@ -34,8 +34,8 @@ RUN apt-get update -yqq \
         libjpeg-dev \
         libtiff-dev \
         #/// [textshaping]
-        harfbuzz \
-        fribidi \
+        libharfbuzz-dev \
+        libfribidi-bin \
         
         
     && apt-get install -y --no-install-recommends -t \
