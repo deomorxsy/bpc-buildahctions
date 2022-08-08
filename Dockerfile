@@ -29,10 +29,10 @@ RUN apt-get update -yqq \
         pandoc \
         # /// [ragg]
         g++ \
-        freetype2 \
-        libpng \
-        libtiff \
-        libjpeg \
+        freetype2-doc \
+        libpng12 \
+        libjpeg-dev \
+        libtiff-dev \
         #/// [textshaping]
         harfbuzz \
         fribidi \
