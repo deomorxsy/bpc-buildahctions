@@ -30,7 +30,7 @@ RUN apt-get update -yqq \
         # /// [ragg]
         g++ \
         freetype2-doc \
-        libpng12 \
+        libpng-dev \
         libjpeg-dev \
         libtiff-dev \
         #/// [textshaping]
