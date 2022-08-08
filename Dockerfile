@@ -28,7 +28,7 @@ RUN apt-get update -yqq \
         #/// [pkgdown]
         pandoc \
         # /// [ragg]
-        cpp-11 \
+        g++ \
         freetype2 \
         libpng \
         libtiff \
