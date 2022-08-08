@@ -25,15 +25,15 @@ RUN apt-get update -yqq \
         ssh \
         wget \
         cmake \
-        #pkgdown
+        #/// [pkgdown]
         pandoc \
-        #ragg
+        # /// [ragg]
         cpp-11 \
         freetype2 \
         libpng \
         libtiff \
         libjpeg \
-        #textshaping
+        #/// [textshaping]
         harfbuzz \
         fribidi \
         
