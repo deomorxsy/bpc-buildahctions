@@ -25,6 +25,7 @@ RUN apt-get update -yqq \
         ssh \
         wget \
         cmake \
+        gfortran \
         #/// [pkgdown]
         pandoc \
         # /// [ragg]
@@ -36,8 +37,8 @@ RUN apt-get update -yqq \
         #/// [textshaping]
         libharfbuzz-dev \
         libfribidi-bin \
-        
-        
+
+
     && apt-get install -y --no-install-recommends -t \
         buster-cran40 r-base \
         r-base-dev \
