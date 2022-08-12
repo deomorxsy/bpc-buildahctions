@@ -53,7 +53,7 @@ RUN ln -fs /usr/local/lib/R/site-library/littler/bin/r /usr/bin/r \
 
 RUN install2.r  --error \
     arrow \
-    devtools \
+    #devtools \
     remotes \
     renv \
     sparklyr \
