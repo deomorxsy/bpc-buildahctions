@@ -25,18 +25,18 @@ RUN apt-get update -yqq \
         ssh \
         wget \
         cmake \
-        gfortran \
+        #gfortran \
         #/// [pkgdown]
-        pandoc \
+        #pandoc \
         # /// [ragg]
-        g++ \
-        freetype2-doc \
-        libpng-dev \
-        libjpeg-dev \
-        libtiff-dev \
+        #g++ \
+        #freetype2-doc \
+        #libpng-dev \
+        #libjpeg-dev \
+        #libtiff-dev \
         #/// [textshaping]
-        libharfbuzz-dev \
-        libfribidi-bin \
+        #libharfbuzz-dev \
+        #libfribidi-bin \
 
 
     && apt-get install -y --no-install-recommends -t \
@@ -61,8 +61,8 @@ RUN install2.r  --error \
     nycflights13 \
     Lahman \
     lemon \
-    AzureStor \
-    bibliometrix
+    #AzureStor \
+    #bibliometrix
 
 RUN mkdir -p /opt/spark/work-dir/R/ /opt/spark/logs/ /mnt/spark/data/ /mnt/spark/work/
 COPY *.R /opt/spark/work-dir/R/
