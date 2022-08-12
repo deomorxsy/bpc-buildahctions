@@ -52,8 +52,17 @@ RUN ln -fs /usr/local/lib/R/site-library/littler/bin/r /usr/bin/r \
     && echo "R_LIBS_USER=${R_LIBS_USER-'/usr/local/lib/R/site-library/'}"  >> /usr/lib/R/etc/Renviron
 
 RUN install2.r  --error \
+    #arrow \
+    #devtools \
+    #remotes \
+    #renv \
     sparklyr \
     tidyverse \
+    #nycflights13 \
+    #Lahman \
+    #lemon \
+    #AzureStor \
+    #bibliometrix
 
 RUN mkdir -p /opt/spark/work-dir/R/ /opt/spark/logs/ /mnt/spark/data/ /mnt/spark/work/
 COPY *.R /opt/spark/work-dir/R/
