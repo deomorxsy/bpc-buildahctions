@@ -37,7 +37,7 @@ RUN ln -fs /usr/local/lib/R/site-library/littler/bin/r /usr/bin/r \
     && ln -fs /usr/local/lib/R/site-library/littler/examples/installGithub.r /usr/bin/installGithub.r \
     && echo "R_LIBS_USER=${R_LIBS_USER-'/usr/local/lib/R/site-library/'}"  >> /usr/lib/R/etc/Renviron
 
-RUN install2.r  --error \
+RUN install2.r  --error --deps TRUE \
     sparklyr \
     tidyverse \
 
