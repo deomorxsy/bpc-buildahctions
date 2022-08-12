@@ -25,20 +25,6 @@ RUN apt-get update -yqq \
         ssh \
         wget \
         cmake \
-        #gfortran \
-        #/// [pkgdown]
-        #pandoc \
-        # /// [ragg]
-        #g++ \
-        #freetype2-doc \
-        #libpng-dev \
-        #libjpeg-dev \
-        #libtiff-dev \
-        #/// [textshaping]
-        #libharfbuzz-dev \
-        #libfribidi-bin \
-
-
     && apt-get install -y --no-install-recommends -t \
         buster-cran40 r-base \
         r-base-dev \
