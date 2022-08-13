@@ -9,13 +9,14 @@ USER root
 
 RUN echo "deb http://cloud.r-project.org/bin/linux/debian buster-cran40/" >> /etc/apt/sources.list \
     && apt-key adv --keyserver keyserver.ubuntu.com --recv-key '95C0FAF38DB3CCAD0C080A7BDC78B2DDEABC47B7'
-RUN apt-get update -yqq \
+RUN apt-add-repository universe \
+    && apt-get update -yqq \
     && apt-get upgrade -yqq \
     && apt-get install -y --no-install-recommends \
         git \
         jq \
         libicu63 \
-        libreadline7 \
+        libreadline8 \
         libcurl4-openssl-dev \
         libgit2-dev \
         libmagick++-dev \
