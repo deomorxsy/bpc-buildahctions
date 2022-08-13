@@ -14,7 +14,7 @@ RUN echo "deb http://cloud.r-project.org/bin/linux/debian buster-cran40/" >> /et
     && apt-get upgrade -yqq \
     && apt-get install software-properties-common -yqq \
     && apt-get update -yqq \
-    && apt-add-repository "deb http://archive.ubuntu.com/ubuntu buster universe" -y
+    && apt-add-repository "deb http://archive.ubuntu.com/ubuntu focal universe" -y
 
 RUN apt-get update -yqq \
     && apt-get upgrade -yqq \
