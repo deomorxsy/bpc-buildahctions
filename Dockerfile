@@ -9,11 +9,11 @@ USER root
 
 RUN echo "deb http://cloud.r-project.org/bin/linux/debian buster-cran40/" >> /etc/apt/sources.list \
     && apt-key adv --keyserver keyserver.ubuntu.com --recv-key '95C0FAF38DB3CCAD0C080A7BDC78B2DDEABC47B7' \
-	&& apt-get update -yqq \
-	&& apt-get upgrade -yqq \
-	&& apt-get install software-properties-common -yq \
-	&& apt-get update -yqq \
-	&& apt-add-repository universe -y \
+    && apt-get update -yqq \
+    && apt-get upgrade -yqq \
+    && apt-get install software-properties-common -yq \
+    && apt-get update -yqq \
+    && apt-add-repository universe -y \
 
 RUN apt-get update -yqq \
     && apt-get upgrade -yqq \
