@@ -4,6 +4,7 @@ ARG R_VERSION="4.0.4"
 ARG LIBARROW_BINARY="true"
 ARG RSPM_CHECKPOINT=2696074
 ARG CRAN="https://packagemanager.rstudio.com/all/__linux__/focal/${RSPM_CHECKPOINT}"
+ARG DISTRO_VERSION="$(lsb_release -sc)"
 
 USER root
 
@@ -13,7 +14,7 @@ RUN echo "deb http://cloud.r-project.org/bin/linux/debian buster-cran40/" >> /et
     && apt-get upgrade -yqq \
     && apt-get install software-properties-common -yqq \
     && apt-get update -yqq \
-    && apt-add-repository universe -y
+    && apt-add-repository "deb http://archive.ubuntu.com/ubuntu ${DISTRO_VERSION} universe" universe -y
 
 RUN apt-get update -yqq \
     && apt-get upgrade -yqq \
