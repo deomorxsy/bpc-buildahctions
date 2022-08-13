@@ -14,6 +14,8 @@ RUN apt-get update -yqq \
     && apt-get install -y --no-install-recommends \
         git \
         jq \
+		libicu63 \
+		libreadline7 \
         libcurl4-openssl-dev \
         libgit2-dev \
         libmagick++-dev \
