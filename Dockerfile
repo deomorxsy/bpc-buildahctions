@@ -11,8 +11,8 @@ RUN echo "deb http://cloud.r-project.org/bin/linux/debian buster-cran40/" >> /et
     && apt-key adv --keyserver keyserver.ubuntu.com --recv-key '95C0FAF38DB3CCAD0C080A7BDC78B2DDEABC47B7'
 RUN apt-get update -yqq \
     && apt-get upgrade -yqq \
-    && apt-get install software-properties-common \
-    && apt-add-repository universe \
+    && apt-get install software-properties-common -yq \
+    && apt-add-repository universe -yq \
     && apt-get update -yqq \
     && apt-get upgrade -yqq \
     && apt-get install -y --no-install-recommends \
