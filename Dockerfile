@@ -13,7 +13,7 @@ RUN echo "deb http://cloud.r-project.org/bin/linux/debian buster-cran40/" >> /et
     && apt-get upgrade -yqq \
     && apt-get install software-properties-common -yqq \
     && apt-get update -yqq \
-    && apt-add-repository universe -y \
+    && apt-add-repository universe -y
 
 RUN apt-get update -yqq \
     && apt-get upgrade -yqq \
