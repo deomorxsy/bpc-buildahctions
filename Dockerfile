@@ -1,4 +1,4 @@
-FROM gcr.io/datamechanics/spark:3.0.2-hadoop-3.2.0-java-8-scala-2.12-python-3.8-dm13
+FROM gcr.io/datamechanics/spark:3.2.1-hadoop-3.3.1-java-8-scala-2.12-python-3.8-dm17
 
 ARG R_VERSION="4.0.4"
 ARG LIBARROW_BINARY="true"
