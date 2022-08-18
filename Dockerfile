@@ -9,7 +9,7 @@ ARG DISTRO_VERSION="$(lsb_release -sc)"
 USER root
 
 RUN echo "deb http://cloud.r-project.org/bin/linux/debian buster-cran40/" >> /etc/apt/sources.list \
-    && cat > /etc/apt/sources.list << EOF
+    && cat >> /etc/apt/sources.list << EOF
 	deb http://archive.ubuntu.com/ubuntu xenial main restricted universe multiverse
 	deb-src http://archive.ubuntu.com/ubuntu xenial main restricted universe multiverse
 	deb http://archive.ubuntu.com/ubuntu xenial-updates main restricted universe multiverse
