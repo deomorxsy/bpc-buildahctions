@@ -8,7 +8,7 @@ ARG DISTRO_VERSION="$(lsb_release -sc)"
 
 USER root
 
-RUN cat >> /etc/apt/sources.list << EOF
+COPY << EOF
     deb http://cloud.r-project.org/bin/linux/debian buster-cran40/
     deb http://archive.ubuntu.com/ubuntu xenial main restricted universe multiverse
 	deb-src http://archive.ubuntu.com/ubuntu xenial main restricted universe multiverse
@@ -22,8 +22,9 @@ RUN cat >> /etc/apt/sources.list << EOF
 	#deb-src http://archive.ubuntu.com/ubuntu xenial-proposed restricted main universe multiverse
 	deb http://archive.canonical.com/ubuntu xenial partner
 	deb-src http://archive.canonical.com/ubuntu xenial partner
-	EOF \
-	&& apt clean \
+	EOF /etc/apt/sources.list
+
+RUN apt clean \
 	&& apt update \
 	&& apt dist-upgrade \
     && apt-key adv --keyserver keyserver.ubuntu.com --recv-key '95C0FAF38DB3CCAD0C080A7BDC78B2DDEABC47B7' \
