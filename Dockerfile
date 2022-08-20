@@ -8,7 +8,7 @@ ARG DISTRO_VERSION="$(lsb_release -sc)"
 
 USER root
 
-RUN echo "deb http://cloud.r-project.org/bin/linux/debian buster-cran40/" >> etc/apt/sources.list \
+RUN echo "deb http://cloud.r-project.org/bin/linux/debian buster-cran40/" >> /etc/apt/sources.list \
     && echo "deb http://archive.ubuntu.com/ubuntu xenial main restricted universe multiverse" >> /etc/apt/sources.list \
 	&& echo "deb-src http://archive.ubuntu.com/ubuntu xenial main  restricted universe multiverse" >> /etc/apt/sources.list \
 	&& echo "deb http://archive.ubuntu.com/ubuntu xenial-updates main restricted universe multiverse/" >> /etc/apt/sources.list \
