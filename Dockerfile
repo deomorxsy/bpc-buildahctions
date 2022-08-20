@@ -11,6 +11,7 @@ USER root
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-key '40976EAF437D05B5' \
     && apt-key adv --keyserver keyserver.ubuntu.com --recv-key '3B4FE6ACC0B21F32' \
     && echo "deb http://cloud.r-project.org/bin/linux/debian buster-cran40/" >> /etc/apt/sources.list \
+    && apt-key adv --keyserver keyserver.ubuntu.com --recv-key '95C0FAF38DB3CCAD0C080A7BDC78B2DDEABC47B7' \
     && echo "deb http://archive.ubuntu.com/ubuntu xenial main restricted universe multiverse" >> /etc/apt/sources.list \
 	&& echo "deb-src http://archive.ubuntu.com/ubuntu xenial main  restricted universe multiverse" >> /etc/apt/sources.list \
 	&& echo "deb http://archive.ubuntu.com/ubuntu xenial-updates main restricted universe multiverse/" >> /etc/apt/sources.list \
@@ -27,7 +28,6 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-key '40976EAF437D05B5' \
 RUN apt clean \
     && apt update \
     && apt dist-upgrade \
-    && apt-key adv --keyserver keyserver.ubuntu.com --recv-key '95C0FAF38DB3CCAD0C080A7BDC78B2DDEABC47B7' \
     && apt-get update -yqq \
     && apt-get upgrade -yqq \
     && apt-get install software-properties-common -yqq \
