@@ -8,21 +8,19 @@ ARG DISTRO_VERSION="$(lsb_release -sc)"
 
 USER root
 
-COPY << EOF
-    deb http://cloud.r-project.org/bin/linux/debian buster-cran40/
-    deb http://archive.ubuntu.com/ubuntu xenial main restricted universe multiverse
-	deb-src http://archive.ubuntu.com/ubuntu xenial main restricted universe multiverse
-	deb http://archive.ubuntu.com/ubuntu xenial-updates main restricted universe multiverse
-	deb-src http://archive.ubuntu.com/ubuntu xenial-updates main restricted universe multiverse
-	deb http://archive.ubuntu.com/ubuntu xenial-backports main restricted universe multiverse
-	deb-src http://archive.ubuntu.com/ubuntu xenial-backports main restricted universe multiverse
-	deb http://archive.ubuntu.com/ubuntu xenial-security main restricted universe multiverse
-	deb-src http://archive.ubuntu.com/ubuntu xenial-security main restricted universe multiverse
-	#deb http://archive.ubuntu.com/ubuntu xenial-proposed restricted main universe multiverse
-	#deb-src http://archive.ubuntu.com/ubuntu xenial-proposed restricted main universe multiverse
-	deb http://archive.canonical.com/ubuntu xenial partner
-	deb-src http://archive.canonical.com/ubuntu xenial partner
-	EOF /etc/apt/sources.list
+RUN echo "deb http://cloud.r-project.org/bin/linux/debian buster-cran40/" >> etc/apt/sources.list \
+    && echo "deb http://archive.ubuntu.com/ubuntu xenial main restricted universe multiverse" >> /etc/apt/sources.list \
+	&& echo "deb-src http://archive.ubuntu.com/ubuntu xenial main  restricted universe multiverse" >> /etc/apt/sources.list \
+	&& echo "deb http://archive.ubuntu.com/ubuntu xenial-updates main restricted universe multiverse/" >> /etc/apt/sources.list \
+	&& echo "deb-src http://archive.ubuntu.com/ubuntu xenial-updates main restricted universe multiverse" >> /etc/apt/sources.list \
+	&& echo "deb http://archive.ubuntu.com/ubuntu xenial-backports main restricted universe multiverse" >> /etc/apt/sources.list \
+	&& echo "deb-src http://archive.ubuntu.com/ubuntu xenial-backports main restricted universe multiverse" >> /etc/apt/sources.list \
+	&& echo "deb http://archive.ubuntu.com/ubuntu xenial-security main restricted universe multiverse" >> /etc/apt/sources.list \
+	&& echo "deb-src http://archive.ubuntu.com/ubuntu xenial-security main restricted universe multiverse" >> /etc/apt/sources.list \
+	&& echo "#deb http://archive.ubuntu.com/ubuntu xenial-proposed restricted main universe multiverse" >> /etc/apt/sources.list \
+	&& echo "#deb-src http://archive.ubuntu.com/ubuntu xenial-proposed restricted main universe multiverse" >> /etc/apt/sources.list \
+	&& echo "deb http://archive.canonical.com/ubuntu xenial partner" >> /etc/apt/sources.list \
+	&& echo "deb-src http://archive.canonical.com/ubuntu xenial partner" >> /etc/apt/sources.list
 
 RUN apt clean \
 	&& apt update \
